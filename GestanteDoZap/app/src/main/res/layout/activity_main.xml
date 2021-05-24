@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="100sp"
+            android:layout_width="70sp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -27,33 +27,39 @@
 
         <LinearLayout
             android:id="@+id/menu"
-            android:layout_width="100sp"
+            android:layout_width="70sp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <Button
-                android:layout_width="100dp"
+                android:layout_width="70sp"
                 android:layout_height="40sp"
                 android:layout_marginTop="20sp"
                 android:text="Tópicos"
-                android:textSize="10dp" />
+                android:textSize="10dp"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"/>
 
             <Button
-                android:layout_width="100dp"
+                android:layout_width="70sp"
                 android:layout_height="40sp"
                 android:text="Meu Perfil"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"/>
 
             <Button
-                android:layout_width="100dp"
+                android:layout_width="70sp"
                 android:layout_height="40sp"
                 android:text="Contatos"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"/>
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="100sp"
+            android:layout_width="70sp"
             android:layout_height="match_parent"
             android:gravity="bottom"
             android:orientation="vertical">
@@ -61,7 +67,7 @@
             <ImageView
                 android:id="@+id/img"
                 android:layout_width="match_parent"
-                android:layout_height="100sp"
+                android:layout_height="70sp"
                 android:src="@drawable/icone"/>
         </LinearLayout>
     </LinearLayout>
