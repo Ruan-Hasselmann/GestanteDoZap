@@ -39,7 +39,8 @@
                 android:text="Tópicos"
                 android:textSize="10dp"
                 android:paddingLeft="0sp"
-                android:paddingRight="0sp"/>
+                android:paddingRight="0sp"
+                android:onClick="abrirTopicos"/>
 
             <Button
                 android:layout_width="70sp"
@@ -47,15 +48,17 @@
                 android:text="Meu Perfil"
                 android:textSize="10sp"
                 android:paddingLeft="0sp"
-                android:paddingRight="0sp"/>
+                android:paddingRight="0sp"
+                android:onClick="abrirPerfil"/>
 
             <Button
                 android:layout_width="70sp"
                 android:layout_height="40sp"
-                android:text="Contatos"
+                android:text="Contato"
                 android:textSize="10sp"
                 android:paddingLeft="0sp"
-                android:paddingRight="0sp"/>
+                android:paddingRight="0sp"
+                android:onClick="abrirContato"/>
 
         </LinearLayout>
         <LinearLayout
