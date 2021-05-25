@@ -1,21 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Topicos"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="70sp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:text="Menu"
+                android:textSize="10sp"
+                android:onClick="menu"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu"
+            android:layout_width="70sp"
+            android:layout_marginTop="20sp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:layout_width="70sp"
+                android:layout_height="40sp"
+                android:text="Inicio"
+                android:textSize="10sp"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"
+                android:onClick="abrirInicio"/>
+
+            <Button
+                android:layout_width="70sp"
+                android:layout_height="40sp"
+                android:text="Meu Perfil"
+                android:textSize="10dp"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"
+                android:onClick="abrirPerfil"/>
+
+            <Button
+                android:layout_width="70sp"
+                android:layout_height="40sp"
+                android:text="Contato"
+                android:textSize="10sp"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"
+                android:onClick="abrirContato"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="70sp"
             android:layout_height="match_parent"
-            android:text="Topico"/>
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="70sp"
+                android:src="@drawable/icone"/>
+        </LinearLayout>
     </LinearLayout>
 
-</ScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Layout de topicos"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

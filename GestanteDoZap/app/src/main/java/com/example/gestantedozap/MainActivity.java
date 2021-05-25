@@ -29,15 +29,18 @@ public class MainActivity extends AppCompatActivity {
     public void abrirTopicos(View view) {
         Intent it = new Intent(this, Topicos.class);
         startActivity(it);
+        menu.setVisibility(View.GONE);
     }
 
     public void abrirPerfil(View view) {
         Intent it = new Intent(this, Perfil.class);
         startActivity(it);
+        menu.setVisibility(View.GONE);
     }
 
     public void abrirContato(View view) {
         Intent it = new Intent(this, Contato.class);
         startActivity(it);
+        menu.setVisibility(View.GONE);
     }
 }
