@@ -7,28 +7,59 @@
     tools:context=".Login"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Login"/>
+            android:layout_marginTop="20sp"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:layout_gravity="center"
-            android:onClick="abrirCadastrar"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logar"
-            android:layout_gravity="center"
-            android:onClick="login"/>
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="300sp"
+                android:layout_height="300sp"
+                android:layout_gravity="center"
+                android:src="@drawable/icone"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:hint="Login:"
+                android:id="@+id/nome"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:hint="Senha:"
+                android:id="@+id/senha"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logar"
+                android:layout_gravity="center"
+                android:onClick="login"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cadastrar"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:onClick="abrirCadastrar"/>
+
+        </LinearLayout>
 
 </ScrollView>
