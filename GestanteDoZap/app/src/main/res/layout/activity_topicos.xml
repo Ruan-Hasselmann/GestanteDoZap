@@ -75,10 +75,16 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="1sp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="1sp"
+        android:background="@color/black"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="5sp">
+        android:layout_marginLeft="2sp">
 
         <LinearLayout
             android:layout_width="match_parent"
