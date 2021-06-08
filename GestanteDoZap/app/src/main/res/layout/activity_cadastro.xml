@@ -86,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:text="Sim"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="sim"/>
 
             <RadioButton
                 android:id="@+id/radioButton3"
@@ -94,10 +95,26 @@
                 android:layout_height="wrap_content"
                 android:text="Não"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="nao"
+                android:checked="true"/>
         </RadioGroup>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:id="@+id/parto"
+            android:visibility="gone">
 
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="Escreva sobre seu parto"/>
+
+        </LinearLayout>
 
         <EditText
             android:hint="Celular"

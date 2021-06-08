@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GestanteDoZap</string>
+    <string name="btn_add_contact"><u>Cadastrar</u></string>
 </resources>

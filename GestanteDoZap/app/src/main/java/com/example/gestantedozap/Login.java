@@ -20,6 +20,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(View view) {
+        //Implementar login no servidor - de momento abrindo tela inicial
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
         finish();
