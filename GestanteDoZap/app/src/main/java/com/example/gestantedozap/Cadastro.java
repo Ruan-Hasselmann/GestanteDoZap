@@ -1,5 +1,6 @@
 package com.example.gestantedozap;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,11 @@ public class Cadastro extends AppCompatActivity {
 
     public void nao(View view) {
         parto.setVisibility(View.GONE);
+    }
+
+    public void cadastrar(View view) {
+        Intent it = new Intent(this, MainActivity.class);
+        startActivity(it);
+        finish();
     }
 }
