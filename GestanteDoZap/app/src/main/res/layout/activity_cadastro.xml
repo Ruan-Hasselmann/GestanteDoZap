@@ -186,7 +186,7 @@
             android:textAlignment="center"/>
 
         <Spinner
-            android:id="@+id/Conheceu"
+            android:id="@+id/conheceu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -204,24 +204,27 @@
             android:text="Quero Receber Notificações Via Whatsapp"
             android:visibility="visible"/>
 
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_gravity="center_horizontal"
+                android:text="Cadastrar"
+                android:onClick="cadastrar"/>
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:text="Ao Cadastrar Você Concorda com os Termos de Uso a Política de Privacidade da Gestante de Zap"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:gravity="center" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:layout_gravity="center_horizontal"
-            android:text="Cadastrar"
-            android:onClick="cadastrar"/>
 
     </LinearLayout>
 

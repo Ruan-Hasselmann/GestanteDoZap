@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">GestanteDoZap</string>
     <string name="btn_add_contact"><u>Cadastrar</u></string>
+    
+    <string-array name="conheceu_app">
+        <item>Facebook</item>
+        <item>Instagram</item>
+        <item>Whatsapp</item>
+    </string-array>
 </resources>
