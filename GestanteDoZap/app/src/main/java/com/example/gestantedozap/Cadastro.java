@@ -2,20 +2,17 @@ package com.example.gestantedozap;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 public class Cadastro extends AppCompatActivity {
 
-    EditText Nome, Sobrenome, SemanaGestacao, Nascimento, Telefone, Email, Senha;
-    Spinner Conheceu;
-    CheckBox IsNotificar;
-    Button BtnCadastrar;
+    EditText nome, sobrenome, semanaGestacao, nascimento, telefone, email, senha;
+    Spinner conheceu;
+    CheckBox isNotificar;
+    Button btnCadastrar;
 
     LinearLayout parto;
 
@@ -24,8 +21,19 @@ public class Cadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
         parto = findViewById(R.id.parto);
-        conheceu = (Spinner) findViewById(R.id.conheceu);
 
+        nome = findViewById(R.id.nome);
+        sobrenome = findViewById(R.id.sobrenome);
+        semanaGestacao = findViewById(R.id.semana);
+        nascimento = findViewById(R.id.nascimento);
+        telefone = findViewById(R.id.telefone);
+        email = findViewById(R.id.email);
+        senha = findViewById(R.id.senha);
+        isNotificar = findViewById(R.id.isNotificar);
+        btnCadastrar = findViewById(R.id.btnCadastrar);
+
+        //Configurando o spinner
+        conheceu = (Spinner) findViewById(R.id.conheceu);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.conheceu_app, android.R.layout.simple_spinner_dropdown_item);
         conheceu.setAdapter(adapter);
     }
