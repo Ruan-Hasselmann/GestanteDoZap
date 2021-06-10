@@ -1,5 +1,6 @@
 package com.example.gestantedozap;
 
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,10 +9,14 @@ import android.view.View;
 
 public class Login extends AppCompatActivity {
 
+    EditText nome, senha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        nome = findViewById(R.id.nome);
+        senha = findViewById(R.id.senha);
     }
 
     public void abrirCadastrar(View view) {
