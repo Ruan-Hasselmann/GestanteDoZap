@@ -12,8 +12,13 @@ import android.os.Bundle;
 
 public class Cadastro extends AppCompatActivity {
 
+    EditText Nome, Sobrenome, SemanaGestacao, Nascimento, Telefone, Email, Senha;
+    Spinner Conheceu;
+    CheckBox IsNotificar;
+    Button BtnCadastrar;
+
     LinearLayout parto;
-    Spinner conheceu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
