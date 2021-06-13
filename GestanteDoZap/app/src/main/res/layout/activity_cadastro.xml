@@ -23,7 +23,7 @@
 
         <EditText
             android:hint="Nome"
-            android:id="@+id/Nome"
+            android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -33,7 +33,7 @@
 
         <EditText
             android:hint="Sobrenome"
-            android:id="@+id/Sobrenome"
+            android:id="@+id/sobrenome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -43,7 +43,7 @@
 
         <EditText
             android:hint="Semana de Gestação"
-            android:id="@+id/Semana"
+            android:id="@+id/semana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -54,7 +54,7 @@
 
         <EditText
             android:hint="Data de Nascimento"
-            android:id="@+id/Nascimento"
+            android:id="@+id/nascimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -142,7 +142,7 @@
 
         <EditText
             android:hint="Celular"
-            android:id="@+id/Telefone"
+            android:id="@+id/telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -153,7 +153,7 @@
 
         <EditText
             android:hint="E-mail"
-            android:id="@+id/Email"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -165,7 +165,7 @@
 
         <EditText
             android:hint="Senha"
-            android:id="@+id/Senha"
+            android:id="@+id/senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -196,7 +196,7 @@
             />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/isNotificar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -205,6 +205,7 @@
             android:visibility="visible"/>
 
         <Button
+                android:id="@+id/btnCadastrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
