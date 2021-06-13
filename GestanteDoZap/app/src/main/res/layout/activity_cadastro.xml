@@ -11,7 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:srcCompat="@drawable/icone"
+                android:id="@+id/imageView2"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -19,21 +23,12 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:textStyle="bold"/>
 
         <EditText
-            android:hint="Nome"
+            android:hint="Nome completo"
             android:id="@+id/nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:hint="Sobrenome"
-            android:id="@+id/sobrenome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -49,39 +44,39 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             />
 
         <EditText
-            android:hint="Data de Nascimento"
-            android:id="@+id/nascimento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            />
+                android:hint="Data de Nascimento (dia/mes/ano)"
+                android:id="@+id/nascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:ems="10"
+                android:inputType="date"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Já Vivenciou a Experiência do Parto?"
+            android:text="Já vivenciou a experiência do parto?"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:textStyle="bold"
             />
 
         <RadioGroup
+            android:id="@+id/rgVivenciouParto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/rdSim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sim"
@@ -90,7 +85,7 @@
                 android:onClick="sim"/>
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/rdNao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Não"
@@ -137,7 +132,6 @@
                 android:layout_marginRight="20sp"
                 android:inputType="number"
                 android:hint="Quantos abortos?"/>
-
         </LinearLayout>
 
         <EditText
@@ -148,7 +142,8 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text"
+            android:maxLength="20"
             />
 
         <EditText
@@ -159,9 +154,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:ems="10"
-            android:inputType="textPersonName" />
-
-
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:hint="Senha"
@@ -171,7 +164,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             />
 
         <TextView
