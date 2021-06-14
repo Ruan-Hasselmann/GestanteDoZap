@@ -201,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
-            android:text="Quero Receber Notificações Via Whatsapp"
+            android:text="Quero receber notificações via Email"
             android:visibility="visible"/>
 
         <Button
