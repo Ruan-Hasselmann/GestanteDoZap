@@ -211,6 +211,7 @@
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
                 android:layout_gravity="center_horizontal"
+
                 android:text="Cadastrar"
                 android:onClick="cadastrar"/>
 
