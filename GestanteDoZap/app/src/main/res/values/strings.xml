@@ -7,6 +7,6 @@
     <string-array name="conheceu_app">
         <item>Facebook</item>
         <item>Instagram</item>
-        <item>Whatsapp</item>
+        <item>Outros</item>
     </string-array>
 </resources>
