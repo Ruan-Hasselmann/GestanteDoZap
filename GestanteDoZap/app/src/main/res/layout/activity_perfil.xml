@@ -19,6 +19,7 @@
 
             <Button
                 android:layout_width="match_parent"
+                android:backgroundTint="@color/green"
                 android:layout_height="40sp"
                 android:text="Menu"
                 android:textSize="10sp"
@@ -36,6 +37,7 @@
             <Button
                 android:layout_width="70sp"
                 android:layout_height="40sp"
+                android:backgroundTint="@color/green"
                 android:text="Inicio"
                 android:textSize="10sp"
                 android:paddingLeft="0sp"
@@ -45,6 +47,7 @@
             <Button
                 android:layout_width="70sp"
                 android:layout_height="40sp"
+                android:backgroundTint="@color/green"
                 android:text="Tópicos"
                 android:textSize="10dp"
                 android:paddingLeft="0sp"
@@ -54,6 +57,7 @@
             <Button
                 android:layout_width="70sp"
                 android:layout_height="40sp"
+                android:backgroundTint="@color/green"
                 android:text="Contato"
                 android:textSize="10sp"
                 android:paddingLeft="0sp"
@@ -66,6 +70,18 @@
             android:layout_height="match_parent"
             android:gravity="bottom"
             android:orientation="vertical">
+
+            <TextView
+                    android:onClick="abrirInsta"
+                    android:id="@+id/btn_some_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="8sp"
+                    android:text="@string/btnInsta"
+                    android:textAllCaps="false"
+                    android:textColor="#57a0d4"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
             <ImageView
                 android:id="@+id/img"

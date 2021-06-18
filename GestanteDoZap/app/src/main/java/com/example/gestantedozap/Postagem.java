@@ -1,6 +1,7 @@
 package com.example.gestantedozap;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,5 +42,10 @@ public class Postagem extends AppCompatActivity {
         Intent it = new Intent(this, Contato.class);
         startActivity(it);
         menu.setVisibility(View.GONE);
+    }
+
+    public void abrirInsta(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.instagram.com"));
+        startActivity(browserIntent);
     }
 }

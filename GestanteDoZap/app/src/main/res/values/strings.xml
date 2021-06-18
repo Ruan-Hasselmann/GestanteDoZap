@@ -3,6 +3,9 @@
     <string name="btn_add_contact">
         <u>Cadastrar</u>
     </string>
+    <string name="btnInsta">
+        <u>Visite nosso Instagram</u>
+    </string>
 
     <string-array name="conheceu_app">
         <item>Facebook</item>
