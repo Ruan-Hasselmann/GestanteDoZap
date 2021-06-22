@@ -1,18 +1,24 @@
 package com.example.gestantedozap;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.view.View;
 import android.widget.*;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import androidx.fragment.app.DialogFragment;
 
-public class Cadastro extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     EditText nome, sobrenome, semanaGestacao, nascimento, telefone, email, senha;
     Spinner conheceu;
     CheckBox isNotificar;
-    Button btnCadastrar;
+    Button btnCadastrar, button;
 
     LinearLayout parto;
 
@@ -36,6 +42,25 @@ public class Cadastro extends AppCompatActivity {
         conheceu = (Spinner) findViewById(R.id.conheceu);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.conheceu_app, android.R.layout.simple_spinner_dropdown_item);
         conheceu.setAdapter(adapter);
+
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        String currentDateString = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(c.getTime());
+        nascimento.setText(currentDateString);
     }
 
     public void sim(View view) {
