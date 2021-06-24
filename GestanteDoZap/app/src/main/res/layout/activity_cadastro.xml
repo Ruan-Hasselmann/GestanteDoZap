@@ -63,13 +63,16 @@
             android:editable="false"
             android:ems="10"
             android:inputType="none"/>
+
         <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
+                android:backgroundTint="@color/green"
                 android:text="Selecionar data de nascimento"/>
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
