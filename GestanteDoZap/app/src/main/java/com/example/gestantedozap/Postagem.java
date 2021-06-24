@@ -29,19 +29,19 @@ public class Postagem extends AppCompatActivity {
     public void abrirTopicos(View view) {
         Intent it = new Intent(this, Topicos.class);
         startActivity(it);
-        menu.setVisibility(View.GONE);
+        finish();
     }
 
     public void abrirPerfil(View view) {
         Intent it = new Intent(this, Perfil.class);
         startActivity(it);
-        menu.setVisibility(View.GONE);
+        finish();
     }
 
     public void abrirContato(View view) {
         Intent it = new Intent(this, Contato.class);
         startActivity(it);
-        menu.setVisibility(View.GONE);
+        finish();
     }
 
     public void abrirInsta(View view) {

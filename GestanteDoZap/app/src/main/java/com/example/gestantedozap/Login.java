@@ -25,13 +25,20 @@ public class Login extends AppCompatActivity {
     public void abrirCadastrar(View view) {
         Intent it = new Intent(this, Cadastro.class);
         startActivity(it);
-        finish();
+        //finish();
     }
 
     public void login(View view) {
         //Implementar login no servidor - de momento abrindo tela inicial
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
-        finish();
+        //finish();
+        /*if(login==true){
+            Intent it = new Intent(this, MainActivity.class);
+            startActivity(it);
+            finish();
+        } else {
+
+        }*/
     }
 }

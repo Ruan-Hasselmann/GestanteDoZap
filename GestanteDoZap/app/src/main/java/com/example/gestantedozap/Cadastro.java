@@ -78,6 +78,13 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
 
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
-        finish();
+        //finish(Login.class);
+        /*if("cadastrado com sucesso"){
+            Intent it = new Intent(this, MainActivity.class);
+            startActivity(it);
+            finish();
+        } else {
+
+        }*/
     }
 }
