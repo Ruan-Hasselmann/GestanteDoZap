@@ -44,7 +44,7 @@ public class Topicos extends AppCompatActivity {
     }
 
     public void abrirInsta(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.instagram.com"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/gestantedozap/"));
         startActivity(browserIntent);
     }
 }
