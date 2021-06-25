@@ -65,6 +65,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
 
     public void sim(View view) {
         parto.setVisibility(View.VISIBLE);
+        /**/
     }
 
     public void nao(View view) {
