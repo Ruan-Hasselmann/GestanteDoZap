@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="135sp"
                 android:layout_gravity="bottom"
-                android:src="@drawable/contato"
+                android:src="@drawable/contatos"
                 android:onClick="abrirInsta"/>
         </LinearLayout>
 
