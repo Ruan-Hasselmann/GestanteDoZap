@@ -10,17 +10,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    EditText nome, sobrenome, semanaGestacao, nascimento, telefone, email, senha;
+    EditText nome, sobrenome, semanaGestacao, normal, cesarea, aborto, nascimento, telefone, email, senha;
     Spinner conheceu;
     CheckBox isNotificar;
     Button btnCadastrar, button;
-
+    RadioButton radioButton2;
     LinearLayout parto;
+
+    public static final String TAG = "Cadastro";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +43,12 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
 
         nome = findViewById(R.id.nome);
         sobrenome = findViewById(R.id.sobrenome);
-        semanaGestacao = findViewById(R.id.semana);
         nascimento = findViewById(R.id.nascimento);
+        semanaGestacao = findViewById(R.id.semana);
+        radioButton2 = findViewById(R.id.radioButton2);//é o radio button do SIM
+        normal = findViewById(R.id.normal);
+        cesarea = findViewById(R.id.cesarea);
+        aborto = findViewById(R.id.aborto);
         telefone = findViewById(R.id.telefone);
         email = findViewById(R.id.email);
         senha = findViewById(R.id.senha);
@@ -72,20 +89,71 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         parto.setVisibility(View.GONE);
     }
 
-    public void cadastrar(View view) {
-        //Metodo para pegar o conteudo do spiner de como conhecer o app, para adicionar mais opções mudar no arquivo strings.xml
-        /*String conhecimento = conheceu.getSelectedItem().toString();
-        Toast.makeText(getApplicationContext(), "Metodo escolhido: " + conhecimento, Toast.LENGTH_SHORT).show();*/
+    public void cadastrar(View v){
 
-        Intent it = new Intent(this, MainActivity.class);
-        startActivity(it);
-        //finish(Login.class);
-        /*if("cadastrado com sucesso"){
-            Intent it = new Intent(this, MainActivity.class);
-            startActivity(it);
-            finish();
-        } else {
-
+        String inemail = email.getText().toString();
+        String insenha = senha.getText().toString();
+        String innome = nome.getText().toString() + " " + sobrenome.getText().toString();
+        String indataNascimento = nascimento.getText().toString();
+        String insemanaGestacao = semanaGestacao.getText().toString();
+        boolean inpresenciouParto = false;
+        /*if(radioButton2.isEnabled()){
+            boolean inpresenciouParto = true + "";
         }*/
+        String innumPartoNormal = normal.getText() + "";
+        String innumCesarea = cesarea.getText() + "";
+        String innumAborto = aborto.getText() + "";
+        String incelular = telefone.getText().toString();
+        //String innotificar = notificar.getText().toString();
+        String incomoConheceu = conheceu.getSelectedItem().toString();
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "http://191.233.255.192/api/gestante";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String resposta) {
+                System.out.println("Resposta do Servidor: "+ resposta.substring(0,500));
+                /*if(){
+                    Toast.makeText(Cadastro.this, "Cadastrada!", Toast.LENGTH_SHORT).show();
+                    Intent it = new Intent(getApplicationContext(), Login.class);
+                    it.putExtra("email", inemail);
+                    startActivity(it);
+                }
+                else (resposta.equals("0")){
+                    Toast.makeText(Cadastro.this, "Login Inválido", Toast.LENGTH_SHORT).show();
+                }
+                */
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Cadastro.this, "Erro:" + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("email", inemail);
+                params.put("insenha", insenha);
+                params.put("innome", innome);
+                params.put("dataNascimento", indataNascimento);
+                params.put("semanaGestacao", insemanaGestacao);
+                params.put("presenciouParto", inpresenciouParto + "");
+                params.put("numPartoNormal", innumPartoNormal);
+                params.put("numCesarea", innumCesarea);
+                params.put("numAborto", innumAborto);
+                params.put("celular", incelular);
+                //params.put("notificar", innotificar);
+                params.put("comoConheceu", incomoConheceu);
+                return params;
+            }
+        };
+        stringRequest.setTag(TAG);
+        RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
+        stringRequest.setRetryPolicy(policy);
+        queue.add(stringRequest);
+
     }
 }
