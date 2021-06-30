@@ -3,6 +3,7 @@ package com.example.gestantedozap;
 import android.annotation.SuppressLint;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -22,10 +23,26 @@ public class Login extends AppCompatActivity {
         senha = findViewById(R.id.senha);
     }
 
-    public void abrirCadastrar(View view) {
+    /*public void abrirCadastrar(View view) {
         Intent it = new Intent(this, Cadastro.class);
         startActivity(it);
         //finish();
+    }*/
+    public void abrirCadastrar(View view) {
+        Intent it = new Intent(this, Cadastro.class);
+        startActivityForResult(it, 3000);
+    }
+
+    @Override
+    public void onActivityResult(int codigo_da_tela, int resultado, Intent it) {
+        super.onActivityResult(codigo_da_tela, resultado, it);
+
+        if(codigo_da_tela == 3000){
+            if(resultado == 1){
+                nome.setText(it.getStringExtra("email"));
+                Toast.makeText(Login.this, it.getStringExtra("mensagem"), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public void login(View view) {

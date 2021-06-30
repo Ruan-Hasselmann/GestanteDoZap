@@ -212,7 +212,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:text="Quero receber notificações via Email"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <Button
                 android:id="@+id/btnCadastrar"
