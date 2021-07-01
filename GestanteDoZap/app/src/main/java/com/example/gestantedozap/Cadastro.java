@@ -222,7 +222,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
             /**
              * Define a rota para o login
              * */
-            String url = "http://192.168.0.5:3333/cadastro/gestante";
+            String url = "http://191.233.255.192/api/gestante";
             //Cria os parâmetros da requisição
             Map<String, Object> params = new HashMap<>();
             params.put("email", email);
