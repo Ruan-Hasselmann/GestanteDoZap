@@ -120,20 +120,23 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
     }
 
     public void nao(View view) {
+        editTextNumPartoNormal.setText("0");
+        editTextNumAborto.setText("0");
+        editTextNumCesarea.setText("0");
         parto.setVisibility(View.GONE);
     }
 
     /*public void cadastrar(View v){
 
-        *//*String inemail = email.getText().toString();
+        String inemail = email.getText().toString();
         String insenha = senha.getText().toString();
         String innome = nome.getText().toString() + " " + sobrenome.getText().toString();
         String indataNascimento = nascimento.getText().toString();
         String insemanaGestacao = semanaGestacao.getText().toString();
         boolean inpresenciouParto = false;
-        *//**//*if(radioButton2.isEnabled()){
+        if(radioButton2.isEnabled()){
             boolean inpresenciouParto = true + "";
-        }*//**//*
+        }
         String innumPartoNormal = normal.getText() + "";
         String innumCesarea = cesarea.getText() + "";
         String innumAborto = aborto.getText() + "";
@@ -187,7 +190,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         stringRequest.setTag(TAG);
         RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
         stringRequest.setRetryPolicy(policy);
-        queue.add(stringRequest);*//*
+        queue.add(stringRequest);
 
 
     }*/
