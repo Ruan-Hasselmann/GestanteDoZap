@@ -120,9 +120,9 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
     }
 
     public void nao(View view) {
-        editTextNumPartoNormal.setText("0");
-        editTextNumAborto.setText("0");
-        editTextNumCesarea.setText("0");
+        editTextNumPartoNormal.setText("");
+        editTextNumAborto.setText("");
+        editTextNumCesarea.setText("");
         parto.setVisibility(View.GONE);
     }
 

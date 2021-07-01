@@ -181,7 +181,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             />
 
         <TextView
