@@ -32,10 +32,11 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
 
     EditText editTextNome, editTextDataNascimento, editTextSemanaGestacao, editTextNumPartoNormal, editTextNumCesarea, editTextNumAborto, editTextCelular, editTextEmail, editTextSenha;
     Spinner spinnerConheceu;
-    //CheckBox checkBoxIsNotificar;
+    CheckBox checkBoxIsNotificar;
     Button btnCadastrar, button;
     LinearLayout parto;
-    //Parâmetros para cadastro
+    RadioButton radioButtonPresenciouParto;
+
     String nome, dataNascimento, celular, email, senha, comoConheceu, semanaGestacao, numPartoNormal, numCesarea, numAborto;
     RequestQueue queue = null;
     Intent it;
@@ -51,17 +52,16 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         editTextNome = findViewById(R.id.nome);
         editTextSemanaGestacao = findViewById(R.id.semana);
         editTextDataNascimento = findViewById(R.id.nascimento);
-        //radioButtonPresenciouParto = findViewById(R.id.radioButton2);
+        radioButtonPresenciouParto = findViewById(R.id.radioButton2);
         editTextNumPartoNormal = findViewById(R.id.normal);
         editTextNumCesarea = findViewById(R.id.cesarea);
         editTextNumAborto = findViewById(R.id.aborto);
         editTextCelular = findViewById(R.id.telefone);
         editTextEmail = findViewById(R.id.email);
         editTextSenha = findViewById(R.id.senha);
-        //checkBoxIsNotificar = findViewById(R.id.isNotificar);
+        checkBoxIsNotificar = findViewById(R.id.isNotificar);
         btnCadastrar = findViewById(R.id.btnCadastrar);
 
-        //Configurando o spinner
         spinnerConheceu = (Spinner) findViewById(R.id.conheceu);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.conheceu_app, android.R.layout.simple_spinner_dropdown_item);
         spinnerConheceu.setAdapter(adapter);
@@ -88,7 +88,6 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
 
     public void sim(View view) {
         parto.setVisibility(View.VISIBLE);
-        /**/
     }
 
     public void nao(View view) {
@@ -99,37 +98,28 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
     }
 
     public void cadastrar(View view) {
-        //Metodo para pegar o conteudo do spiner de como conhecer o app, para adicionar mais opções mudar no arquivo strings.xml
-        /*String conhecimento = conheceu.getSelectedItem().toString();
-        Toast.makeText(getApplicationContext(), "Metodo escolhido: " + conhecimento, Toast.LENGTH_SHORT).show();*/
         nome = editTextNome.getText().toString();
         dataNascimento = editTextDataNascimento.getText().toString();
         semanaGestacao = editTextSemanaGestacao.getText().toString();
-        //presenciouParto = radioButtonPresenciouParto.isChecked();
+        presenciouParto = radioButtonPresenciouParto.isChecked();
         numPartoNormal = editTextNumPartoNormal.getText().toString();
         numCesarea = editTextNumCesarea.getText().toString();
         numAborto = editTextNumAborto.getText().toString();
         celular = editTextCelular.getText().toString();
         comoConheceu = spinnerConheceu.getSelectedItem().toString();
-        //notificacoes = checkBoxIsNotificar.isChecked();
-        //Usuário
+        notificacoes = checkBoxIsNotificar.isChecked();
+
         email = editTextEmail.getText().toString();
         senha = editTextSenha.getText().toString();
 
         if(email.length() == 0 || senha.length() == 0 || nome.length() == 0 || dataNascimento.length() == 0) {
             Toast.makeText(Cadastro.this, "Preencha todos os campos...", Toast.LENGTH_SHORT).show();
         } else {
-            /**
-             * Cria uma nova request com a biblioteca volley
-             * */
 
             queue = Volley.newRequestQueue(this);
 
-            /**
-             * Define a rota para o login
-             * */
             String url = "http://191.233.255.192/api/gestante";
-            //Cria os parâmetros da requisição
+
             Map<String, Object> params = new HashMap<>();
             params.put("email", email);
             params.put("senha", senha);
@@ -160,19 +150,12 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }, error -> { //erro de requisição
+                    }, error -> {
                 Toast.makeText(Cadastro.this, "Erro:" + error.getMessage(), Toast.LENGTH_SHORT).show();
             });
-            //da uma tag para a requisição
             jsonObjectRequest.setTag(TAG);
-            //backOffMultiplier: multiplicador do timout de resposta do servidor, para esperar mais tempo nas tentativas subsequentes
-            //1a tentativa: 10seg
-            //2a tentativa: 10seg (t1) + 2*10seg = 30seg
-            //3a tentativa: 30seg + 2*30seg = 150seg
-            //...
             RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
             jsonObjectRequest.setRetryPolicy(policy);
-            //adiciono a requisição na fila de requisições para que ela seja dispachada
             Log.d("Request", jsonObjectRequest.toString());
             queue.add(jsonObjectRequest);
         }
