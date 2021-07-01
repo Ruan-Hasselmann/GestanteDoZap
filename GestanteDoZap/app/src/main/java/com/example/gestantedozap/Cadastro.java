@@ -30,25 +30,17 @@ import java.util.Map;
 
 public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    EditText editTextNome, editTextDataNascimento, editTextSemanaGestacao, editTextNumPartoNormal, editTextNumCesarea,
-            editTextNumAborto, editTextCelular, editTextEmail, editTextSenha;
-    RadioButton radioButtonPresenciouParto;
+    EditText editTextNome, editTextDataNascimento, editTextSemanaGestacao, editTextNumPartoNormal, editTextNumCesarea, editTextNumAborto, editTextCelular, editTextEmail, editTextSenha;
     Spinner spinnerConheceu;
-    CheckBox checkBoxIsNotificar;
+    //CheckBox checkBoxIsNotificar;
+    Button btnCadastrar, button;
+    LinearLayout parto;
     //Parâmetros para cadastro
     String nome, dataNascimento, celular, email, senha, comoConheceu, semanaGestacao, numPartoNormal, numCesarea, numAborto;
-    boolean presenciouParto, notificacoes;
-
     RequestQueue queue = null;
-    public static final String TAG = "CADASTRO";
-
-
-    Button btnCadastrar, button;
-    RadioButton radioButton2;
-    LinearLayout parto;
-
-    //public static final String TAG = "Cadastro";
     Intent it;
+    boolean presenciouParto, notificacoes;
+    public static final String TAG = "CADASTRO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,37 +48,17 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         setContentView(R.layout.activity_cadastro);
         it = getIntent();
         parto = findViewById(R.id.parto);
-
-/*        nome = findViewById(R.id.nome);
-        sobrenome = findViewById(R.id.sobrenome);
-        nascimento = findViewById(R.id.nascimento);
-        semanaGestacao = findViewById(R.id.semana);
-        radioButton2 = findViewById(R.id.radioButton2);//é o radio button do SIM
-        normal = findViewById(R.id.normal);
-        cesarea = findViewById(R.id.cesarea);
-        aborto = findViewById(R.id.aborto);
-        telefone = findViewById(R.id.telefone);
-        email = findViewById(R.id.email);
-        senha = findViewById(R.id.senha);
-        isNotificar = findViewById(R.id.isNotificar);
-        btnCadastrar = findViewById(R.id.btnCadastrar);
-
-        //Configurando o spinner
-        conheceu = (Spinner) findViewById(R.id.conheceu);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.conheceu_app, android.R.layout.simple_spinner_dropdown_item);
-        conheceu.setAdapter(adapter);*/
-
         editTextNome = findViewById(R.id.nome);
         editTextSemanaGestacao = findViewById(R.id.semana);
         editTextDataNascimento = findViewById(R.id.nascimento);
-        radioButtonPresenciouParto = findViewById(R.id.radioButton2);
+        //radioButtonPresenciouParto = findViewById(R.id.radioButton2);
         editTextNumPartoNormal = findViewById(R.id.normal);
         editTextNumCesarea = findViewById(R.id.cesarea);
         editTextNumAborto = findViewById(R.id.aborto);
         editTextCelular = findViewById(R.id.telefone);
         editTextEmail = findViewById(R.id.email);
         editTextSenha = findViewById(R.id.senha);
-        checkBoxIsNotificar = findViewById(R.id.isNotificar);
+        //checkBoxIsNotificar = findViewById(R.id.isNotificar);
         btnCadastrar = findViewById(R.id.btnCadastrar);
 
         //Configurando o spinner
@@ -126,75 +98,6 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         parto.setVisibility(View.GONE);
     }
 
-    /*public void cadastrar(View v){
-
-        String inemail = email.getText().toString();
-        String insenha = senha.getText().toString();
-        String innome = nome.getText().toString() + " " + sobrenome.getText().toString();
-        String indataNascimento = nascimento.getText().toString();
-        String insemanaGestacao = semanaGestacao.getText().toString();
-        boolean inpresenciouParto = false;
-        if(radioButton2.isEnabled()){
-            boolean inpresenciouParto = true + "";
-        }
-        String innumPartoNormal = normal.getText() + "";
-        String innumCesarea = cesarea.getText() + "";
-        String innumAborto = aborto.getText() + "";
-        String incelular = telefone.getText().toString();
-        //String innotificar = notificar.getText().toString();
-        String incomoConheceu = conheceu.getSelectedItem().toString();
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        String url = "http://191.233.255.192/api/gestante";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String resposta) {
-                System.out.println("Resposta do Servidor: "+ resposta.substring(0,500));
-                Toast.makeText(Cadastro.this, "Testando app"+ resposta, Toast.LENGTH_SHORT).show();
-                if(resposta.equals("0")){
-                    Toast.makeText(Cadastro.this, "Login Inválido", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(Cadastro.this, "Cadastrada!", Toast.LENGTH_SHORT).show();
-                    Intent it = new Intent(getApplicationContext(), Login.class);
-                    it.putExtra("email", inemail);
-                    startActivity(it);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Cadastro.this, "Erro:" + error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        })
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("email", inemail);
-                params.put("senha", insenha);
-                params.put("nome", innome);
-                params.put("dataNascimento", indataNascimento);
-                params.put("semanaGestacao", insemanaGestacao);
-                params.put("presenciouParto", inpresenciouParto + "");
-                params.put("numPartoNormal", innumPartoNormal);
-                params.put("numCesarea", innumCesarea);
-                params.put("numAborto", innumAborto);
-                params.put("celular", incelular);
-                //params.put("notificar", innotificar);
-                params.put("comoConheceu", incomoConheceu);
-                return params;
-            }
-        };
-        stringRequest.setTag(TAG);
-        RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
-        stringRequest.setRetryPolicy(policy);
-        queue.add(stringRequest);
-
-
-    }*/
-
     public void cadastrar(View view) {
         //Metodo para pegar o conteudo do spiner de como conhecer o app, para adicionar mais opções mudar no arquivo strings.xml
         /*String conhecimento = conheceu.getSelectedItem().toString();
@@ -202,13 +105,13 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         nome = editTextNome.getText().toString();
         dataNascimento = editTextDataNascimento.getText().toString();
         semanaGestacao = editTextSemanaGestacao.getText().toString();
-        presenciouParto = radioButtonPresenciouParto.isChecked();
+        //presenciouParto = radioButtonPresenciouParto.isChecked();
         numPartoNormal = editTextNumPartoNormal.getText().toString();
         numCesarea = editTextNumCesarea.getText().toString();
         numAborto = editTextNumAborto.getText().toString();
         celular = editTextCelular.getText().toString();
         comoConheceu = spinnerConheceu.getSelectedItem().toString();
-        notificacoes = checkBoxIsNotificar.isChecked();
+        //notificacoes = checkBoxIsNotificar.isChecked();
         //Usuário
         email = editTextEmail.getText().toString();
         senha = editTextSenha.getText().toString();

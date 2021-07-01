@@ -25,15 +25,15 @@
                 android:src="@drawable/icone" />
 
             <EditText
-                android:id="@+id/nome"
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
-                android:hint="Login:" />
+                android:hint="Email:" />
 
             <EditText
-                android:id="@+id/senha"
+                android:id="@+id/editTextSenha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20sp"
@@ -48,7 +48,7 @@
                 android:layout_marginTop="20sp"
                 android:backgroundTint="@color/green"
                 android:onClick="login"
-                android:text="Logar" />
+                android:text="Entrar" />
         </LinearLayout>
 
         <LinearLayout

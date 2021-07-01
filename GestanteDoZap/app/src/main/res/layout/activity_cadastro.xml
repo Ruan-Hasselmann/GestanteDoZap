@@ -23,18 +23,8 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:hint="Nome"
+            android:hint="Nome Completo"
             android:id="@+id/nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:hint="Sobrenome"
-            android:id="@+id/sobrenome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
