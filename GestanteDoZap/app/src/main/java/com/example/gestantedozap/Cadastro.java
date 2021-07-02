@@ -30,14 +30,14 @@ import java.util.Map;
 
 public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    EditText editTextNome, editTextDataNascimento, editTextSemanaGestacao, editTextNumPartoNormal, editTextNumCesarea, editTextNumAborto, editTextCelular, editTextEmail, editTextSenha;
+    EditText editTextNome, editTextDataNascimento, editTextSemanaGestacao, editTextNumPartoNormal, editTextNumCesarea, editTextNumAborto, editTextCelular, editTextEmail, editTextSenha, repeteSenha;
     Spinner spinnerConheceu;
     CheckBox checkBoxIsNotificar;
     Button btnCadastrar, button;
     LinearLayout parto;
     RadioButton radioButtonPresenciouParto;
 
-    String nome, dataNascimento, celular, email, senha, comoConheceu, semanaGestacao, numPartoNormal, numCesarea, numAborto;
+    String nome, dataNascimento, celular, email, senha, comoConheceu, semanaGestacao, numPartoNormal, numCesarea, numAborto, confirmaSenha;
     RequestQueue queue = null;
     Intent it;
     boolean presenciouParto, notificacoes;
@@ -61,6 +61,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         editTextSenha = findViewById(R.id.senha);
         checkBoxIsNotificar = findViewById(R.id.isNotificar);
         btnCadastrar = findViewById(R.id.btnCadastrar);
+        repeteSenha = findViewById(R.id.repeteSenha);
 
         spinnerConheceu = (Spinner) findViewById(R.id.conheceu);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.conheceu_app, android.R.layout.simple_spinner_dropdown_item);
@@ -111,53 +112,57 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
 
         email = editTextEmail.getText().toString();
         senha = editTextSenha.getText().toString();
+        confirmaSenha = repeteSenha.getText().toString();
 
-        if(email.length() == 0 || senha.length() == 0 || nome.length() == 0 || dataNascimento.length() == 0) {
+        if(email.length() == 0 || senha.length() == 0 || nome.length() == 0 || dataNascimento.length() == 0 || confirmaSenha.length() == 0) {
             Toast.makeText(Cadastro.this, "Preencha todos os campos...", Toast.LENGTH_SHORT).show();
         } else {
+            if (senha != confirmaSenha){
+                Toast.makeText(this, "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
+            }else{
+                queue = Volley.newRequestQueue(this);
 
-            queue = Volley.newRequestQueue(this);
+                String url = "http://191.233.255.192/api/gestante";
 
-            String url = "http://191.233.255.192/api/gestante";
+                Map<String, Object> params = new HashMap<>();
+                params.put("email", email);
+                params.put("senha", senha);
+                params.put("nome", nome);
+                params.put("dataNascimento", dataNascimento);
+                params.put("semanaGestacao", semanaGestacao);
+                params.put("presenciouParto", presenciouParto);
+                params.put("numPartoNormal", numPartoNormal);
+                params.put("numCesarea", numCesarea);
+                params.put("numAborto", numAborto);
+                params.put("celular", celular);
+                params.put("comoConheceu", comoConheceu);
+                params.put("notificacoes", notificacoes);
 
-            Map<String, Object> params = new HashMap<>();
-            params.put("email", email);
-            params.put("senha", senha);
-            params.put("nome", nome);
-            params.put("dataNascimento", dataNascimento);
-            params.put("semanaGestacao", semanaGestacao);
-            params.put("presenciouParto", presenciouParto);
-            params.put("numPartoNormal", numPartoNormal);
-            params.put("numCesarea", numCesarea);
-            params.put("numAborto", numAborto);
-            params.put("celular", celular);
-            params.put("comoConheceu", comoConheceu);
-            params.put("notificacoes", notificacoes);
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, new JSONObject(params),
-                    json -> {
-                        try {
-                            if(json.getInt("statusCode") == 200){
-                                it.putExtra("email", email);
-                                it.putExtra("mensagem", json.getString("message"));
-                                setResult(1, it);
-                                finish();
-                            }  else if (json.getInt("statusCode") == 404){
-                                Toast.makeText(Cadastro.this, json.getString("message"), Toast.LENGTH_SHORT).show();
-                            } else if(json.getInt("statusCode") == 403){
-                                Toast.makeText(Cadastro.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, new JSONObject(params),
+                        json -> {
+                            try {
+                                if(json.getInt("statusCode") == 200){
+                                    it.putExtra("email", email);
+                                    it.putExtra("mensagem", json.getString("message"));
+                                    setResult(1, it);
+                                    finish();
+                                }  else if (json.getInt("statusCode") == 404){
+                                    Toast.makeText(Cadastro.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                                } else if(json.getInt("statusCode") == 403){
+                                    Toast.makeText(Cadastro.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }, error -> {
-                Toast.makeText(Cadastro.this, "Erro:" + error.getMessage(), Toast.LENGTH_SHORT).show();
-            });
-            jsonObjectRequest.setTag(TAG);
-            RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
-            jsonObjectRequest.setRetryPolicy(policy);
-            Log.d("Request", jsonObjectRequest.toString());
-            queue.add(jsonObjectRequest);
+                        }, error -> {
+                    Toast.makeText(Cadastro.this, "Erro:" + error.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+                jsonObjectRequest.setTag(TAG);
+                RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
+                jsonObjectRequest.setRetryPolicy(policy);
+                Log.d("Request", jsonObjectRequest.toString());
+                queue.add(jsonObjectRequest);
+            }
         }
     }
 }
