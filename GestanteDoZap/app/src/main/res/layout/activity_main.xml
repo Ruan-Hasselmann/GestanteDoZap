@@ -34,6 +34,7 @@
             android:visibility="gone">
 
             <Button
+                android:visibility="gone"
                 android:layout_width="70sp"
                 android:layout_height="40sp"
                 android:layout_marginTop="20sp"
@@ -45,6 +46,7 @@
                 android:onClick="abrirTopicos"/>
 
             <Button
+                android:visibility="gone"
                 android:layout_width="70sp"
                 android:layout_height="40sp"
                 android:backgroundTint="@color/green"
@@ -57,6 +59,7 @@
             <Button
                 android:layout_width="70sp"
                 android:layout_height="40sp"
+                android:layout_marginTop="20sp"
                 android:backgroundTint="@color/green"
                 android:text="Contato"
                 android:textSize="10sp"

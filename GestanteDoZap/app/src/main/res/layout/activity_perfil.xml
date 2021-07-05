@@ -45,6 +45,7 @@
                 android:onClick="abrirInicio"/>
 
             <Button
+                android:visibility="gone"
                 android:layout_width="70sp"
                 android:layout_height="40sp"
                 android:backgroundTint="@color/green"
