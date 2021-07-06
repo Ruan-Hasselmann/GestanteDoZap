@@ -2,14 +2,9 @@ package com.example.gestantedozap;
 
 import android.net.Uri;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         menu = findViewById(R.id.menu);
         textView = findViewById(R.id.textView);
-
     }
 
     private void exibirPostagens() {
@@ -48,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         Toast.makeText(MainActivity.this, "Resposta", Toast.LENGTH_SHORT).show();
                         try {
-                            Toast.makeText(MainActivity.this, ""+response.length(), Toast.LENGTH_SHORT).show();
-                            for (int i = 0; i <= response.length(); i++){
+                            for (int i = 0; i < response.length(); i++){
                                 textView.setText("Response: " + response.get(i));
                             }
                         } catch (JSONException e) {
@@ -70,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
         JsonArrayRequest.setRetryPolicy(policy);
         Log.d("Request", JsonArrayRequest.toString());
         queue.add(JsonArrayRequest);
-
-        // Access the RequestQueue through your singleton class.
-        //MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-
     }
 
     public void menu(View view) {
