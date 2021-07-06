@@ -107,6 +107,7 @@
         android:background="@drawable/bg">
 
         <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
@@ -117,7 +118,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20sp"
-                android:text="Layout para postagens"/>
+                android:text="Layout para postagens"
+                android:visibility="visible"/>
 
             <Button
                     android:layout_width="wrap_content"
@@ -130,7 +132,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="20sp"
-                    android:text="Layout para postagens"/>
+                    android:text="Layout para postagens"
+                    android:visibility="gone"/>
 
         </LinearLayout>
 

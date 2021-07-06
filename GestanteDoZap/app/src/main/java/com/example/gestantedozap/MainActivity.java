@@ -11,13 +11,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.android.volley.*;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.HttpCookie;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout menu;
+    LinearLayout menu, layout;
     TextView textView;
     RequestQueue queue = null;
 
@@ -29,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         menu = findViewById(R.id.menu);
         textView = findViewById(R.id.textView);
+        layout = findViewById(R.id.layout);
+        //exibirPostagens();
     }
 
     private void exibirPostagens() {
@@ -41,9 +47,22 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         Toast.makeText(MainActivity.this, "Resposta", Toast.LENGTH_SHORT).show();
+                        //textView.setText("" + response);
+
                         try {
                             for (int i = 0; i < response.length(); i++){
                                 textView.setText("Response: " + response.get(i));
+
+
+
+                                /*final TextView[] myTextViews = new TextView[response.length()];
+                                final TextView rowTextView = new TextView(getApplicationContext());
+                                String resposta = response.get(i).toString();
+                                String teste = resposta.substring(5,25);
+                                rowTextView.setText(""+response.get(i));
+                                layout.addView(rowTextView);
+                                myTextViews[i] = rowTextView;*/
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -54,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
                         Toast.makeText(MainActivity.this, "Erro na solicitação" + error.getMessage(), Toast.LENGTH_SHORT).show();
-                        textView.setText(error.toString());
+                        textView.setText("ERRO " + error.toString());
                     }
                 });
 
