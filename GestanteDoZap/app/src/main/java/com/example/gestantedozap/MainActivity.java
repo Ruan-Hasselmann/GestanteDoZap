@@ -1,29 +1,31 @@
 package com.example.gestantedozap;
 
+import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import com.android.volley.*;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.net.HttpCookie;
+import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout menu, layout;
     TextView textView;
     RequestQueue queue = null;
+    LayoutInflater postModel;
+    View view;
 
     public static final String TAG = "GET";
 
@@ -33,55 +35,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         menu = findViewById(R.id.menu);
         textView = findViewById(R.id.textView);
-        layout = findViewById(R.id.layout);
-        //exibirPostagens();
+        layout = findViewById(R.id.postagens);
+        postModel = getLayoutInflater();
+        getPostagens();
     }
 
-    private void exibirPostagens() {
-
+    private void getPostagens() {
+        layout.removeAllViews();
         queue = Volley.newRequestQueue(this);
         String url = "http://191.233.255.192/api/postagem";
 
-        JsonArrayRequest JsonArrayRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Toast.makeText(MainActivity.this, "Resposta", Toast.LENGTH_SHORT).show();
-                        //textView.setText("" + response);
-
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                response -> {
+                    for (int i = 0; i < response.length(); i++) {
                         try {
-                            for (int i = 0; i < response.length(); i++){
-                                textView.setText("Response: " + response.get(i));
+                            view = postModel.inflate(R.layout.postagem_layout, layout, false);
+                            ImageView imageView =  view.findViewById(R.id.imagem);
+                            TextView textViewTitulo = view.findViewById(R.id.titulo);
+                            TextView textViewDescricao = view.findViewById(R.id.descricao);
+                            TextView textViewConteudo = view.findViewById(R.id.conteudo);
 
-
-
-                                /*final TextView[] myTextViews = new TextView[response.length()];
-                                final TextView rowTextView = new TextView(getApplicationContext());
-                                String resposta = response.get(i).toString();
-                                String teste = resposta.substring(5,25);
-                                rowTextView.setText(""+response.get(i));
-                                layout.addView(rowTextView);
-                                myTextViews[i] = rowTextView;*/
-
-                            }
+                            Picasso.get().load("http://191.233.255.192/api"+response.getJSONObject(i).getString("caminho")).into(imageView);
+                            textViewTitulo.setText(response.getJSONObject(i).getString("titulo"));
+                            textViewDescricao.setText(response.getJSONObject(i).getString("descricao"));
+                            textViewConteudo.setText(response.getJSONObject(i).getString("conteudo"));
+                            layout.addView(view);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
-                        Toast.makeText(MainActivity.this, "Erro na solicitação" + error.getMessage(), Toast.LENGTH_SHORT).show();
-                        textView.setText("ERRO " + error.toString());
-                    }
-                });
+                }, error -> {
+            Toast.makeText(MainActivity.this, "Erro:" + error.getMessage(), Toast.LENGTH_SHORT).show();
+        });
 
-        JsonArrayRequest.setTag(TAG);
+        jsonArrayRequest.setTag(TAG);
         RetryPolicy policy = new DefaultRetryPolicy(10000, 1, 2);
-        JsonArrayRequest.setRetryPolicy(policy);
-        Log.d("Request", JsonArrayRequest.toString());
-        queue.add(JsonArrayRequest);
+        jsonArrayRequest.setRetryPolicy(policy);
+        Log.d("Request", jsonArrayRequest.toString());
+        queue.add(jsonArrayRequest);
     }
 
     public void menu(View view) {
@@ -116,6 +107,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void teste(View view) {
-        exibirPostagens();
+        getPostagens();
+    }
+
+    private class PostagensAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return null;
+        }
     }
 }

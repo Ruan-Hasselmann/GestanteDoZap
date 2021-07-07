@@ -72,17 +72,17 @@ public class Login extends AppCompatActivity {
             params.put("email", email);
             params.put("senha", senha);
 
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, new JSONObject(params),
-                    json -> {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
+                    response -> {
                         try {
-                            if (json.getInt("statusCode") == 200) {
+                            if (response.getInt("statusCode") == 200) {
                                 finish();
                                 Intent it = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(it);
-                            } else if (json.getInt("statusCode") == 404) {
-                                Toast.makeText(Login.this, json.getString("message"), Toast.LENGTH_SHORT).show();
-                            } else if (json.getInt("statusCode") == 403) {
-                                Toast.makeText(Login.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                            } else if (response.getInt("statusCode") == 404) {
+                                Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                            } else if (response.getInt("statusCode") == 403) {
+                                Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

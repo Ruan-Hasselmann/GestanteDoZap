@@ -138,18 +138,18 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
                 params.put("comoConheceu", comoConheceu);
                 params.put("notificacoes", notificacoes);
 
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, new JSONObject(params),
-                        json -> {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
+                        response -> {
                             try {
-                                if(json.getInt("statusCode") == 200){
+                                if(response.getInt("statusCode") == 200){
                                     it.putExtra("email", email);
-                                    it.putExtra("mensagem", json.getString("message"));
+                                    it.putExtra("mensagem", response.getString("message"));
                                     setResult(1, it);
                                     finish();
-                                }  else if (json.getInt("statusCode") == 404){
-                                    Toast.makeText(Cadastro.this, json.getString("message"), Toast.LENGTH_SHORT).show();
-                                } else if(json.getInt("statusCode") == 403){
-                                    Toast.makeText(Cadastro.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                                }  else if (response.getInt("statusCode") == 404){
+                                    Toast.makeText(Cadastro.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                                } else if(response.getInt("statusCode") == 403){
+                                    Toast.makeText(Cadastro.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
