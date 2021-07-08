@@ -19,9 +19,9 @@ public class Postagem extends AppCompatActivity {
     }
 
     public void menu(View view) {
-        if(menu.getVisibility()==View.GONE){
+        if (menu.getVisibility() == View.GONE) {
             menu.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             menu.setVisibility(View.GONE);
         }
     }

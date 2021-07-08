@@ -68,9 +68,9 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         spinnerConheceu.setAdapter(adapter);
 
         button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 DialogFragment datePicker = new DatePickerFragment();
                 datePicker.show(getSupportFragmentManager(), "date picker");
             }
@@ -114,12 +114,12 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         senha = editTextSenha.getText().toString();
         confirmaSenha = repeteSenha.getText().toString();
 
-        if(email.length() == 0 || senha.length() == 0 || nome.length() == 0 || dataNascimento.length() == 0 || confirmaSenha.length() == 0) {
+        if (email.length() == 0 || senha.length() == 0 || nome.length() == 0 || dataNascimento.length() == 0 || confirmaSenha.length() == 0) {
             Toast.makeText(Cadastro.this, "Preencha todos os campos...", Toast.LENGTH_SHORT).show();
         } else {
-            if (senha != confirmaSenha){
+            if (senha != confirmaSenha) {
                 Toast.makeText(this, "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 queue = Volley.newRequestQueue(this);
 
                 String url = "http://191.233.255.192/api/gestante";
@@ -141,14 +141,14 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
                         response -> {
                             try {
-                                if(response.getInt("statusCode") == 200){
+                                if (response.getInt("statusCode") == 200) {
                                     it.putExtra("email", email);
                                     it.putExtra("mensagem", response.getString("message"));
                                     setResult(1, it);
                                     finish();
-                                }  else if (response.getInt("statusCode") == 404){
+                                } else if (response.getInt("statusCode") == 404) {
                                     Toast.makeText(Cadastro.this, response.getString("message"), Toast.LENGTH_SHORT).show();
-                                } else if(response.getInt("statusCode") == 403){
+                                } else if (response.getInt("statusCode") == 403) {
                                     Toast.makeText(Cadastro.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {

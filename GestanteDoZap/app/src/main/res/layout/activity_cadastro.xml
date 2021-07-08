@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    tools:context=".Cadastro"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Digite os Dados Abaixo"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"/>
+            android:background="@drawable/bg"
+            tools:context=".Cadastro"
+            android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Digite os Dados Abaixo"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"/>
 
         <EditText
-            android:hint="Nome Completo"
-            android:id="@+id/nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+                android:hint="Nome Completo"
+                android:id="@+id/nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:ems="10"
+                android:inputType="textPersonName"/>
 
         <EditText
-            android:hint="Semana de Gestação"
-            android:id="@+id/semana"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="number"
-            />
+                android:hint="Semana de Gestação"
+                android:id="@+id/semana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:ems="10"
+                android:inputType="number"
+        />
 
         <EditText
-            android:hint="Data de Nascimento"
-            android:id="@+id/nascimento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:editable="false"
-            android:ems="10"
-            android:inputType="none"/>
+                android:hint="Data de Nascimento"
+                android:id="@+id/nascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:editable="false"
+                android:ems="10"
+                android:inputType="none"/>
 
         <Button
                 android:id="@+id/button"
@@ -64,115 +64,114 @@
                 android:text="Selecionar data de nascimento"/>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Já Vivenciou a Experiência do Parto?"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            />
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Já Vivenciou a Experiência do Parto?"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+        />
 
         <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
             <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sim"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:onClick="sim"/>
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sim"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:onClick="sim"/>
 
             <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Não"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:onClick="nao"
-                android:checked="true"/>
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Não"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:onClick="nao"
+                    android:checked="true"/>
         </RadioGroup>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical"
-            android:id="@+id/parto"
-            android:visibility="gone">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:id="@+id/parto"
+                android:visibility="gone">
 
             <EditText
-                android:id="@+id/normal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20sp"
-                android:layout_marginRight="20sp"
-                android:inputType="number"
-                android:hint="Quantos partos normais?"/>
+                    android:id="@+id/normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:inputType="number"
+                    android:hint="Quantos partos normais?"/>
 
             <EditText
-                android:id="@+id/cesarea"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20sp"
-                android:layout_marginRight="20sp"
-                android:inputType="number"
-                android:hint="Quantos partos cesárea?"/>
+                    android:id="@+id/cesarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:inputType="number"
+                    android:hint="Quantos partos cesárea?"/>
 
             <EditText
-                android:id="@+id/aborto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20sp"
-                android:layout_marginRight="20sp"
-                android:inputType="number"
-                android:hint="Quantos abortos?"/>
+                    android:id="@+id/aborto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:inputType="number"
+                    android:hint="Quantos abortos?"/>
 
         </LinearLayout>
 
         <EditText
-            android:hint="Celular"
-            android:id="@+id/telefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            />
+                android:hint="Celular"
+                android:id="@+id/telefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:ems="10"
+                android:inputType="textPersonName"
+        />
 
         <EditText
-            android:hint="E-mail"
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
+                android:hint="E-mail"
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:ems="10"
+                android:inputType="textPersonName"/>
 
 
         <EditText
-            android:hint="Senha"
-            android:id="@+id/senha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:ems="10"
-            android:inputType="textPassword"
-            />
+                android:hint="Senha"
+                android:id="@+id/senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:ems="10"
+                android:inputType="textPassword"
+        />
 
         <EditText
                 android:hint="Repita a senha"
@@ -186,34 +185,34 @@
         />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="Como Conheceu o Aplicativo?"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Como Conheceu o Aplicativo?"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
 
         <Spinner
-            android:id="@+id/conheceu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown"
-            />
+                android:id="@+id/conheceu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+        />
 
         <CheckBox
-            android:id="@+id/isNotificar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:text="Quero receber notificações via Email"
-            android:visibility="gone"/>
+                android:id="@+id/isNotificar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:text="Quero receber notificações via Email"
+                android:visibility="gone"/>
 
         <Button
                 android:id="@+id/btnCadastrar"
@@ -227,15 +226,15 @@
                 android:onClick="cadastrar"/>
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:text="Ao Cadastrar Você Concorda com os Termos de Uso a Política de Privacidade da Gestante de Zap"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:gravity="center" />
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:text="Ao Cadastrar Você Concorda com os Termos de Uso a Política de Privacidade da Gestante de Zap"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:gravity="center"/>
 
     </LinearLayout>
 

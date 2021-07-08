@@ -1,7 +1,7 @@
 package com.example.gestantedozap;
 
-import android.content.Context;
 import android.net.Uri;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,14 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.android.volley.*;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
-import org.json.JSONArray;
 import org.json.JSONException;
-
-import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RequestQueue queue = null;
     LayoutInflater postModel;
     View view;
+    SwipeRefreshLayout swipeLayout;
 
     public static final String TAG = "GET";
 
@@ -38,6 +37,25 @@ public class MainActivity extends AppCompatActivity {
         layout = findViewById(R.id.postagens);
         postModel = getLayoutInflater();
         getPostagens();
+        swipeLayout = findViewById(R.id.swipe_container);
+        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getPostagens();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeLayout.setRefreshing(false);
+                    }
+                }, 1000);
+            }
+        });
+        swipeLayout.setColorSchemeColors(
+                getResources().getColor(android.R.color.holo_blue_bright),
+                getResources().getColor(android.R.color.holo_green_light),
+                getResources().getColor(android.R.color.holo_orange_light),
+                getResources().getColor(android.R.color.holo_red_light)
+        );
     }
 
     private void getPostagens() {
@@ -50,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             view = postModel.inflate(R.layout.postagem_layout, layout, false);
-                            ImageView imageView =  view.findViewById(R.id.imagem);
+                            ImageView imageView = view.findViewById(R.id.imagem);
                             TextView textViewTitulo = view.findViewById(R.id.titulo);
                             TextView textViewDescricao = view.findViewById(R.id.descricao);
                             TextView textViewConteudo = view.findViewById(R.id.conteudo);
 
-                            Picasso.get().load("http://191.233.255.192/api"+response.getJSONObject(i).getString("caminho")).into(imageView);
+                            Picasso.get().load("http://191.233.255.192/api" + response.getJSONObject(i).getString("caminho")).into(imageView);
                             textViewTitulo.setText(response.getJSONObject(i).getString("titulo"));
                             textViewDescricao.setText(response.getJSONObject(i).getString("descricao"));
                             textViewConteudo.setText(response.getJSONObject(i).getString("conteudo"));
@@ -76,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void menu(View view) {
-        if(menu.getVisibility()==View.GONE){
+        if (menu.getVisibility() == View.GONE) {
             menu.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             menu.setVisibility(View.GONE);
         }
     }
@@ -104,10 +122,6 @@ public class MainActivity extends AppCompatActivity {
     public void abrirInsta(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/gestantedozap/"));
         startActivity(browserIntent);
-    }
-
-    public void teste(View view) {
-        getPostagens();
     }
 
     private class PostagensAdapter extends BaseAdapter {

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GestanteDoZap.iml" filepath="$PROJECT_DIR$/.idea/modules/GestanteDoZap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GestanteDoZap.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GestanteDoZap.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/gestante.GestanteDoZap.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/gestante.GestanteDoZap.app.iml" />
     </modules>
   </component>
 </project>

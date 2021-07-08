@@ -1,134 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="horizontal">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".MainActivity"
+              android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="70sp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
-                android:backgroundTint="@color/green"
-                android:text="Menu"
-                android:textSize="10sp"
-                android:onClick="menu"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/menu"
-            android:layout_width="70sp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <Button
-                android:visibility="gone"
-                android:layout_width="70sp"
-                android:layout_height="40sp"
-                android:layout_marginTop="20sp"
-                android:backgroundTint="@color/green"
-                android:text="Tópicos"
-                android:textSize="10dp"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:onClick="abrirTopicos"/>
-
-            <Button
-                android:visibility="gone"
-                android:layout_width="70sp"
-                android:layout_height="40sp"
-                android:backgroundTint="@color/green"
-                android:text="Meu Perfil"
-                android:textSize="10sp"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:onClick="abrirPerfil"/>
-
-            <Button
-                android:layout_width="70sp"
-                android:layout_height="40sp"
-                android:layout_marginTop="20sp"
-                android:backgroundTint="@color/green"
-                android:text="Contato"
-                android:textSize="10sp"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:onClick="abrirContato"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="70sp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="bottom"
             android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Menu"
+                    android:textSize="10sp"
+                    android:onClick="menu"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/menu"
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <Button
+                    android:visibility="gone"
+                    android:layout_width="70sp"
+                    android:layout_height="40sp"
+                    android:layout_marginTop="20sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Tópicos"
+                    android:textSize="10dp"
+                    android:paddingLeft="0sp"
+                    android:paddingRight="0sp"
+                    android:onClick="abrirTopicos"/>
+
+            <Button
+                    android:visibility="gone"
+                    android:layout_width="70sp"
+                    android:layout_height="40sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Meu Perfil"
+                    android:textSize="10sp"
+                    android:paddingLeft="0sp"
+                    android:paddingRight="0sp"
+                    android:onClick="abrirPerfil"/>
+
+            <Button
+                    android:layout_width="70sp"
+                    android:layout_height="40sp"
+                    android:layout_marginTop="20sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Contato"
+                    android:textSize="10sp"
+                    android:paddingLeft="0sp"
+                    android:paddingRight="0sp"
+                    android:onClick="abrirContato"/>
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="70sp"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="vertical">
 
             <TextView
-                android:onClick="abrirInsta"
-                android:id="@+id/btn_some_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="8sp"
-                android:text="@string/btnInsta"
-                android:textAllCaps="false"
-                android:textColor="#57a0d4"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+                    android:onClick="abrirInsta"
+                    android:id="@+id/btn_some_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="8sp"
+                    android:text="@string/btnInsta"
+                    android:textAllCaps="false"
+                    android:textColor="#57a0d4"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
             <ImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="70sp"
-                android:src="@drawable/icone"/>
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="70sp"
+                    android:src="@drawable/icone"/>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="1sp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="1sp"
-        android:background="@color/black"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="2sp"
-        android:background="@drawable/bg">
-
-        <LinearLayout
-            android:id="@+id/layout"
-            android:layout_width="match_parent"
+            android:layout_width="1sp"
             android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:orientation="vertical">
+            android:layout_marginLeft="1sp"
+            android:background="@color/black"/>
 
-            <TextView
-                android:id="@+id/textView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:text="Últimas publicações"
-                android:visibility="visible"/>
+                android:layout_marginLeft="2sp"
+                android:background="@drawable/bg">
+
 
             <LinearLayout
-                    android:id="@+id/postagens"
+                    android:id="@+id/layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
                     android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="20sp"
+                        android:text="Últimas publicações"
+                        android:visibility="visible"/>
+
+                <LinearLayout
+                        android:id="@+id/postagens"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
 
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

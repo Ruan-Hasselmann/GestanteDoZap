@@ -47,8 +47,8 @@ public class Login extends AppCompatActivity {
     public void onActivityResult(int codigo_da_tela, int resultado, Intent it) {
         super.onActivityResult(codigo_da_tela, resultado, it);
 
-        if(codigo_da_tela == 3000){
-            if(resultado == 1){
+        if (codigo_da_tela == 3000) {
+            if (resultado == 1) {
                 editTextEmail.setText(it.getStringExtra("email"));
                 Toast.makeText(Login.this, it.getStringExtra("mensagem"), Toast.LENGTH_SHORT).show();
             }
@@ -60,7 +60,7 @@ public class Login extends AppCompatActivity {
         email = editTextEmail.getText().toString();
         senha = editTextSenha.getText().toString();
 
-        if(email.length() == 0 || senha.length() == 0) {
+        if (email.length() == 0 || senha.length() == 0) {
             Toast.makeText(Login.this, "Preencha todos os campos...", Toast.LENGTH_SHORT).show();
         } else {
 

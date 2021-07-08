@@ -20,28 +20,28 @@ public class Contato extends AppCompatActivity {
     }
 
     public void menu(View view) {
-        if(menu.getVisibility()== View.GONE){
+        if (menu.getVisibility() == View.GONE) {
             menu.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             menu.setVisibility(View.GONE);
         }
     }
 
-    public void abrirTopicos(View view) {
+    /*public void abrirTopicos(View view) {
         Intent it = new Intent(this, Topicos.class);
         startActivity(it);
         finish();
-    }
+    }*/
 
     public void abrirInicio(View view) {
         finish();
     }
 
-    public void abrirPerfil(View view) {
+    /*public void abrirPerfil(View view) {
         Intent it = new Intent(this, Perfil.class);
         startActivity(it);
         finish();
-    }
+    }*/
 
     public void abrirInsta(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/gestantedozap/"));

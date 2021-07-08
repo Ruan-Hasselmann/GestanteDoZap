@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Contato"
-    android:orientation="horizontal">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".Contato"
+              android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="70sp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
-                android:backgroundTint="@color/green"
-                android:text="Menu"
-                android:textSize="10sp"
-                android:onClick="menu"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/menu"
-            android:layout_width="70sp"
-            android:layout_marginTop="20sp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <Button
-                android:layout_width="70sp"
-                android:layout_height="40sp"
-                android:backgroundTint="@color/green"
-                android:text="Inicio"
-                android:textSize="10sp"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:onClick="abrirInicio"/>
-
-            <Button
-                android:visibility="gone"
-                android:layout_width="70sp"
-                android:layout_height="40sp"
-                android:backgroundTint="@color/green"
-                android:text="Tópicos"
-                android:textSize="10dp"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:onClick="abrirTopicos"/>
-
-            <Button
-                android:visibility="gone"
-                android:layout_width="70sp"
-                android:layout_height="40sp"
-                android:backgroundTint="@color/green"
-                android:text="Meu Perfil"
-                android:textSize="10sp"
-                android:paddingLeft="0sp"
-                android:paddingRight="0sp"
-                android:onClick="abrirPerfil"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="70sp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="bottom"
             android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Menu"
+                    android:textSize="10sp"
+                    android:onClick="menu"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/menu"
+                android:layout_width="70sp"
+                android:layout_marginTop="20sp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <Button
+                    android:layout_width="70sp"
+                    android:layout_height="40sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Inicio"
+                    android:textSize="10sp"
+                    android:paddingLeft="0sp"
+                    android:paddingRight="0sp"
+                    android:onClick="abrirInicio"/>
+
+            <Button
+                    android:visibility="gone"
+                    android:layout_width="70sp"
+                    android:layout_height="40sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Tópicos"
+                    android:textSize="10dp"
+                    android:paddingLeft="0sp"
+                    android:paddingRight="0sp"
+                    android:onClick="abrirTopicos"/>
+
+            <Button
+                    android:visibility="gone"
+                    android:layout_width="70sp"
+                    android:layout_height="40sp"
+                    android:backgroundTint="@color/green"
+                    android:text="Meu Perfil"
+                    android:textSize="10sp"
+                    android:paddingLeft="0sp"
+                    android:paddingRight="0sp"
+                    android:onClick="abrirPerfil"/>
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="70sp"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="vertical">
 
             <TextView
                     android:onClick="abrirInsta"
@@ -86,39 +86,39 @@
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
             <ImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="70sp"
-                android:src="@drawable/icone"/>
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="70sp"
+                    android:src="@drawable/icone"/>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="1sp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="1sp"
-        android:background="@color/black"/>
+            android:layout_width="1sp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1sp"
+            android:background="@color/black"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg"
-        android:gravity="bottom"
-        android:layout_marginLeft="2sp">
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:background="@drawable/bg"
+            android:gravity="bottom"
+            android:layout_marginLeft="2sp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="135sp"
-                android:layout_gravity="bottom"
-                android:src="@drawable/contatos"
-                android:onClick="abrirInsta"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="135sp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/contatos"
+                    android:onClick="abrirInsta"/>
         </LinearLayout>
 
     </LinearLayout>

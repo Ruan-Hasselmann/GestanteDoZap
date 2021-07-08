@@ -17,15 +17,16 @@
         <activity
                 android:name=".Cadastro"
                 android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".Login"/>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".Contato"/>
         <activity android:name=".Perfil"/>
         <activity android:name=".Topicos"/>
         <activity
-                android:name=".MainActivity"
+                android:name=".Login"
                 android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
