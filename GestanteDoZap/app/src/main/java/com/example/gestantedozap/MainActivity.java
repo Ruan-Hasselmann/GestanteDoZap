@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 response -> {
-                    for (int i = 0; i < response.length(); i++) {
+                    for (int i = response.length(); i >= 0; i--) {
                         try {
                             view = postModel.inflate(R.layout.postagem_layout, layout, false);
                             ImageView imageView = view.findViewById(R.id.imagem);
