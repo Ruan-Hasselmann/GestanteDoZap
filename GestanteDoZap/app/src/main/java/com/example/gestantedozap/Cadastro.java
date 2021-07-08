@@ -2,6 +2,8 @@ package com.example.gestantedozap;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
@@ -85,6 +87,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(c.getTime());
         editTextDataNascimento.setText(currentDateString);
+        button.setText("Data de Nascimento: " + currentDateString);
     }
 
     public void sim(View view) {

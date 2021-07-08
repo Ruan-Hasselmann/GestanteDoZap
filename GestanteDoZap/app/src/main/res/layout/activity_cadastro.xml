@@ -52,7 +52,8 @@
                 android:layout_marginRight="20sp"
                 android:editable="false"
                 android:ems="10"
-                android:inputType="none"/>
+                android:inputType="none"
+                android:visibility="gone"/>
 
         <Button
                 android:id="@+id/button"
@@ -61,7 +62,7 @@
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
                 android:backgroundTint="@color/green"
-                android:text="Selecionar data de nascimento"/>
+                android:text="Selecionar data de nascimento "/>
 
         <TextView
                 android:id="@+id/textView"
