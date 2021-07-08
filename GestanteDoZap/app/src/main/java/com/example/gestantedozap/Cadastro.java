@@ -117,7 +117,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
         if (email.length() == 0 || senha.length() == 0 || nome.length() == 0 || dataNascimento.length() == 0 || confirmaSenha.length() == 0) {
             Toast.makeText(Cadastro.this, "Preencha todos os campos...", Toast.LENGTH_SHORT).show();
         } else {
-            if (senha != confirmaSenha) {
+            if (!senha.equals(confirmaSenha)) {
                 Toast.makeText(this, "As senhas são diferentes!", Toast.LENGTH_SHORT).show();
             } else {
                 queue = Volley.newRequestQueue(this);
