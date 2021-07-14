@@ -125,7 +125,7 @@ public class Cadastro extends AppCompatActivity implements DatePickerDialog.OnDa
             } else {
                 queue = Volley.newRequestQueue(this);
 
-                String url = "http://191.233.255.192/api/gestante";
+                String url = "https://gestante-do-zap-api.herokuapp.com/gestante";
 
                 Map<String, Object> params = new HashMap<>();
                 params.put("email", email);

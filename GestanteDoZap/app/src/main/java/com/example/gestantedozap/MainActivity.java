@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private void getPostagens() {
         layout.removeAllViews();
         queue = Volley.newRequestQueue(this);
-        String url = "http://191.233.255.192/api/postagem";
+        String url = "https://gestante-do-zap-api.herokuapp.com/postagem";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 response -> {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             TextView textViewDescricao = view.findViewById(R.id.descricao);
                             TextView textViewConteudo = view.findViewById(R.id.conteudo);
 
-                            Picasso.get().load("http://191.233.255.192/api" + response.getJSONObject(i).getString("caminho")).into(imageView);
+                            Picasso.get().load("https://gestante-do-zap-api.herokuapp.com/" + response.getJSONObject(i).getString("caminho")).into(imageView);
                             textViewTitulo.setText(response.getJSONObject(i).getString("titulo"));
                             textViewDescricao.setText(response.getJSONObject(i).getString("descricao"));
                             textViewConteudo.setText(response.getJSONObject(i).getString("conteudo"));

@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
 
             queue = Volley.newRequestQueue(this);
 
-            String url = "http://191.233.255.192/api/login";
+            String url = "https://gestante-do-zap-api.herokuapp.com/login";
 
             Map<String, Object> params = new HashMap<>();
             params.put("email", email);
